@@ -1,20 +1,19 @@
-# Weather Now
+# Pomoclock
 
-## Frontend Project - Geolocation
+## Frontend Project - UI design
 
-### Multiple API implementation
 
-This is a front-end project built with vanilla HTML and CSS.
+This is a front-end project built with vanilla HTML, CSS, Javascript and Boostrap.
+
+The application allows the user to set a pomodoro timer in intervals of 25 minutes by defaults but the work time as well as the break time intervals can be customized.
 
 
 ## Technologies Used
 
 * HTML
 
-* CSS3 animations
+* CSS3 and SVG animations
 
 * JavaScript
 
-* AJAX/JSON
-
-* Restful APIs
+* Boos
