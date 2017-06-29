@@ -3,10 +3,16 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="1600px" height="198px" viewBox="0 0 1600 198" enable-background="new 0 0 1600 198" xml:space="preserve">
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="495.3091" y1="494.1121" x2="495.3091" y2="493.0025" gradientTransform="matrix(-1600 0 0 -198.0004 793294.5 97812.6953)">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="990.3691" y1="2.8854" x2="990.3691" y2="3.995" gradientTransform="matrix(-1600 0 0 198.0004 1584989 -593.0013)">
 	<stop  offset="0" style="stop-color:#57BBC1;stop-opacity:0.25"/>
 	<stop  offset="1" style="stop-color:#015871"/>
 </linearGradient>
-<path fill="url(#SVGID_1_)" d="M1599.995,121C1289,121,1190.102-0.25,789,0C389,0,289,121,0,121v77h1600
-	C1600,198,1599.995,150,1599.995,121z"/>
+<path fill="url(#SVGID_1_)" d="M796.815,121C641.936,121,592.684-0.25,392.931,0C193.726,0,143.925,121,0,121v77h796.818
+	C796.818,198,796.815,150,796.815,121z"/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="989.8691" y1="2.8854" x2="989.8691" y2="3.995" gradientTransform="matrix(-1600 0 0 198.0004 1584989 -593.0013)">
+	<stop  offset="0" style="stop-color:#57BBC1;stop-opacity:0.25"/>
+	<stop  offset="1" style="stop-color:#015871"/>
+</linearGradient>
+<path fill="url(#SVGID_2_)" d="M1599.969,121c-156.11,0-205.755-121.25-407.096-121C992.084,0,941.887,121,796.818,121v77h803.154
+	C1599.971,198,1599.969,150,1599.969,121z"/>
 </svg>
