@@ -5,6 +5,7 @@ body {
 }
 
 .bg-group {
+  z-index: 1;
   left: 0;
   right: 0;
   top: 50vh;
@@ -81,4 +82,17 @@ body {
   right: 0;
   position: absolute;
   top: 10vh;
+}
+
+.timer {
+  position: absolute;
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  font-size: 10em;
+  font-weight: 200;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  top: 20%;
+  z-index: 2;
 }
