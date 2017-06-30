@@ -95,6 +95,7 @@ body {
   margin: 0;
   top: 20%;
   z-index: 2;
+  text-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -111,14 +112,29 @@ body {
   color: white;
   border: 1px solid white;
   text-align: center;
+  padding: 21px 30px;
 
-  padding: 10px 20px;
+
   border-radius: 50%;
+  transition: 0.5s;
+
+  &:hover {
+    border: none;
+    background-color: white;
+
+    i {
+      color: #fe814d;
+    }
+  }
+
+  i {
+    transition: 0.5s;
+  }
 }
 
 .play {
-  font-size: 4em;
+  font-size: 3em;
   i {
-    transform: translateX(7px);
+    transform: translateX(5px);
   }
 }
