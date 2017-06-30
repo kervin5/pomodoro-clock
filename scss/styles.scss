@@ -1,7 +1,14 @@
 html, body { height: 100%; }
 body {
-  background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, rgba(254,208,149,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,199,118,1) 0%,rgba(255,125,67,1) 100%);
   overflow: hidden;
+}
+
+.bg-group {
+  left: 0;
+  right: 0;
+  top: 50vh;
+  position: relative;
 }
 
 .ocean {
@@ -31,7 +38,7 @@ body {
 }
 
 .wave:nth-of-type(3) {
-  top: -165px;
+  top: -175px;
   animation: wave 7.5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7.5s ease -1.25s infinite;
   opacity: 0.6;
 }
@@ -54,11 +61,24 @@ body {
   }
 }
 
+
+.container {
+  position: relative;
+  top:40px;
+  background-color: #ff753c;
+  height: 90vh;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+  box-shadow: 0px 10px 39px -9px rgba(0,0,0,0.48);
+}
+
 .wave-bg {
-  background-color: #015871;
-  height: 1600px;
+  background: linear-gradient(to bottom, #ffcf7e 20%,#fe814d 100%);
+  height: 80vh;
   left: 0;
   right: 0;
   position: absolute;
-  top: 24vh;
+  top: 10vh;
 }
