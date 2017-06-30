@@ -96,3 +96,29 @@ body {
   top: 20%;
   z-index: 2;
 }
+
+
+
+.lower-controls {
+  position: absolute;
+  bottom: 100px;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button {
+  color: white;
+  border: 1px solid white;
+  text-align: center;
+
+  padding: 10px 20px;
+  border-radius: 50%;
+}
+
+.play {
+  font-size: 4em;
+  i {
+    transform: translateX(7px);
+  }
+}
