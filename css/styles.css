@@ -2,7 +2,7 @@ html, body { height: 100%; margin: 0; background-repeat: no-repeat; background-a
 
 body { background: -webkit-linear-gradient(top, #ffc776 0%, #ff7d43 100%); background: linear-gradient(to bottom, #ffc776 0%, #ff7d43 100%); overflow: hidden; margin-left: 10px; margin-right: 10px; }
 
-.bg-group { z-index: 1; left: 0; right: 0; top: 0; position: relative; }
+.bg-group { z-index: 1; left: 0; right: 0; top: 0; position: relative; -webkit-transition: 0.5s; transition: 0.5s; }
 
 .ocean { height: 5%; width: 100%; position: absolute; left: 0; top: 20vh; background: #015871; }
 
@@ -35,13 +35,15 @@ body { background: -webkit-linear-gradient(top, #ffc776 0%, #ff7d43 100%); backg
 
 .lower-controls { position: absolute; bottom: 100px; z-index: 3; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
 
-.button { color: white; border: 1px solid white; text-align: center; padding: 20px 30px; border-radius: 50%; -webkit-transition: 0.5s; transition: 0.5s; }
+.button { color: white; border: 1px solid white; text-align: center; border-radius: 50%; -webkit-transition: 0.5s; transition: 0.5s; }
 .button:hover { border: none; background-color: white; }
 .button:hover i { color: #fe814d; }
 .button i { -webkit-transition: 0.5s; transition: 0.5s; }
 
-.play { font-size: 3em; }
+.play { font-size: 3em; padding: 20px 30px; }
 .play i { -webkit-transform: translateX(5px); transform: translateX(5px); }
+
+.pause { display: none; padding: 20px 30px; font-size: 3em; }
 
 @media (max-width: 600px), (max-height: 600px) { .lower-controls { bottom: 10%; }
   .upper-controls .control h3 { font-size: 1em; }

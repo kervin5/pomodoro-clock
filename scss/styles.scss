@@ -13,6 +13,7 @@ body {
   right: 0;
   top: 0;
   position: relative;
+  transition: 0.5s;
 }
 
 .ocean {
@@ -148,8 +149,6 @@ body {
   color: white;
   border: 1px solid white;
   text-align: center;
-  padding: 20px 30px;
-
 
   border-radius: 50%;
   transition: 0.5s;
@@ -170,9 +169,16 @@ body {
 
 .play {
   font-size: 3em;
+  padding: 20px 30px;
   i {
     transform: translateX(5px);
   }
+}
+
+.pause {
+  display: none;
+  padding: 20px 30px;
+  font-size: 3em;
 }
 
 @media (max-width: 600px),(max-height: 600px) {
@@ -188,7 +194,6 @@ body {
 
     }
   }
-
 
   .play {
     font-size: 3em;
