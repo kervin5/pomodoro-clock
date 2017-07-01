@@ -1,11 +1,32 @@
 //Javascript
 
 var timerOn = false;
-var currentTimer = "session";
+var currentTimer = "Session";
 var isPaused = false;
-var initialValue = 60;
+var initialValue = 0;
 var currentTime = 0;
 var interval;
+var breakMinutes = 0;
+
+function resetClock() {
+    var sessionLength = parseInt($('#session-length').text());
+    timerOn = false;
+    currentTimer = "Session";
+    isPaused = false;
+    initialValue = 60;
+    currentTime = 0;
+    interval = 0;
+    breakMinutes = 0;
+    $(".info").text("POMODORO");
+    if (sessionLength < 10) {
+        $("#minutes").text("0" + sessionLength.toString());
+    } else  {
+        $("#minutes").text(sessionLength.toString());
+    }
+
+    $(".pause").fadeOut();
+    $(".play").delay(400).fadeIn();
+}
 
 function startTimer(duration, displayMinute, displaySecond, message) {
     var bgPosition = duration;
@@ -37,13 +58,15 @@ function startTimer(duration, displayMinute, displaySecond, message) {
 
                     timer = 0;
 
-                    if (timer === 0 && currentTimer !== "break") {
-                        initialValue = 120;
+                    if (timer === 0 && currentTimer !== "Break") {
+                        initialValue = breakMinutes;
                         clearInterval(timeIntervalID);
-                        startTimer(120, displayMinute, displaySecond, "Break started");
-                        currentTimer = "break";
+                        startTimer(breakMinutes, displayMinute, displaySecond, "Break started");
+                        currentTimer = "Break";
                     } else {
                         $('.info').text("Break is over");
+                        resetClock();
+                        clearInterval(timeIntervalID);
                     }
 
                 }
@@ -54,65 +77,67 @@ function startTimer(duration, displayMinute, displaySecond, message) {
 
 $(document).ready(function () {
 
-    var fragmentTime;
-
-    //$('.info').hide();
-
-    var sessionMinutes = $('#session-length').text();
-    var breakMinutes = $('#break-length').text();
-
-    var minutes = parseInt(sessionMinutes);
-
-    var seconds = $('#seconds').text();
-
-    minutes = parseInt(minutes);
-
-    seconds = parseInt(seconds);
-
-    if (isNaN(minutes)) {
-
-        minutes = 00;
-
-    }
-
-    if (isNaN(seconds)) {
-
-        seconds = 00;
-
-    }
-
-    if (minutes === 60) {
-
-        minutes = 59;
-
-    }
-
-    if (seconds === 60) {
-
-        seconds = 59;
-
-    }
-
-    fragmentTime = (60 * minutes) + (seconds);
-
     displayMinute = document.querySelector('#minutes');
 
     displaySecond = document.querySelector('#seconds');
 
     $(".play").click(function () {
+        var fragmentTime;
+
+        var sessionMinutes = $('#session-length').text();
+        var breakMinutesText = $('#break-length').text();
+        breakMinutes = parseInt(breakMinutesText) * 60;
+
+        var minutes = parseInt(sessionMinutes);
+
+        var seconds = $('#seconds').text();
+
+        initialValue = minutes * 60;
+
+        minutes = parseInt(minutes);
+
+        seconds = parseInt(seconds);
+
+        if (isNaN(minutes)) {
+
+            minutes = 00;
+
+        }
+
+        if (isNaN(seconds)) {
+
+            seconds = 00;
+
+        }
+
+        if (minutes === 60) {
+
+            minutes = 59;
+
+        }
+
+        if (seconds === 60) {
+
+            seconds = 59;
+
+        }
+
+        fragmentTime = (60 * minutes) + (seconds);
+
         $(".play").fadeOut();
         $(".pause").delay(400).fadeIn();
         if(!timerOn && !isPaused){
-            startTimer(fragmentTime, displayMinute, displaySecond,"Session started");
+            startTimer(fragmentTime, displayMinute, displaySecond,currentTimer + " started");
             timerOn = true;
         } else {
-            startTimer(currentTime,displayMinute,displaySecond,"Session started")
+            startTimer(currentTime,displayMinute,displaySecond,currentTimer + " started");
         }
         isPaused = false;
     });
     $(".pause").click(function () {
         $(".pause").fadeOut();
         $(".play").delay(400).fadeIn();
+        $(".info").text(currentTimer + " paused");
         clearInterval(interval);
         isPaused = true;
     });
