@@ -7,6 +7,40 @@ body {
   margin-right: 10px;
 }
 
+.header {
+  width: 100%;
+
+  div {
+    display: inline-block;
+    white-space: nowrap;
+
+  }
+  .title {
+    color: #722e3d;
+    width: 65%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+    font-size: 0.9em;
+    h1 {
+      padding-left: 5%;
+      margin-top: 15px;
+      i {
+        color:#ff753c;
+      }
+    }
+  }
+  .social{
+    width: 30%;
+    text-align: right;
+    font-size: 2em;
+
+    i {
+      margin-left: 10px;
+      color: #722e3d;
+    }
+  }
+}
+
 .bg-group {
   z-index: 1;
   left: 0;
@@ -69,9 +103,9 @@ body {
 
 .container {
   position: relative;
-  top:40px;
+  top:-20px;
   background-color: #ff753c;
-  height: 90vh;
+  height: 85vh;
   overflow: hidden;
   max-width: 600px;
   width: 100%;
@@ -139,19 +173,25 @@ body {
 
 .lower-controls {
   position: absolute;
+  text-align: center;
   bottom: 100px;
   z-index: 3;
   left: 50%;
   transform: translateX(-50%);
+  overflow: visible;
 }
 
 .button {
+  display: block;
   color: white;
   border: 1px solid white;
   text-align: center;
 
   border-radius: 50%;
   transition: 0.5s;
+
+  left: 50%;
+  transform: translateX(-50%);
 
   &:hover {
     border: none;
@@ -168,6 +208,8 @@ body {
 }
 
 .play {
+  bottom: 12%;
+  position: absolute;
   font-size: 3em;
   padding: 20px 30px;
   i {
@@ -176,12 +218,38 @@ body {
 }
 
 .pause {
+  bottom: 12%;
+  position: absolute;
   display: none;
   padding: 20px 30px;
   font-size: 3em;
 }
 
-@media (max-width: 600px),(max-height: 600px) {
+.stop {
+  position: absolute;
+  display: none;
+
+  border: none;
+  font-size: 2em;
+  bottom: -10%;
+
+  i {
+    transform: translateY(50px);
+  }
+
+  &:hover {
+    background-color: rgba(255,255,255,0);
+
+    i {
+      color: #fff;
+      transform: scale(1.2) translateY(50px);
+
+    }
+
+  }
+}
+
+@media (max-width: 600px),(max-height: 650px) {
   .lower-controls {
     bottom: 10%;
   }
@@ -196,9 +264,11 @@ body {
   }
 
   .play {
-    font-size: 3em;
+    position: absolute;
+    font-size: 1em;
+    padding: 10px 15px;
     i {
-      transform: translateX(5px);
+      transform: translateX(2px);
     }
   }
 }
@@ -209,10 +279,31 @@ body {
   bottom: 30%;
 }
 
-@media (max-width: 600px),(max-height: 600px) {
+@media (max-width: 600px),(max-height: 650px) {
   .info {
     top: auto;
     font-size: 2em;
     bottom: 30%;
+  }
+}
+
+footer {
+  width: 100%;
+  background-color: #e8c283;
+  text-align: center;
+  z-index: 120;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  font-family: 'Roboto', sans-serif;
+
+  .fa {
+    color:red;
+  }
+
+  a {
+    color: white;
   }
 }

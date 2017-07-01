@@ -29,6 +29,7 @@ function resetClock() {
     $("#seconds").text("00");
     clearInterval(interval);
     $(".pause").fadeOut();
+    $(".stop").fadeOut();
     $(".play").delay(400).fadeIn();
 }
 
@@ -90,6 +91,7 @@ $(document).ready(function () {
     displaySecond = document.querySelector('#seconds');
 
     $(".play").click(function () {
+
         var fragmentTime;
 
         var sessionMinutes = $('#session-length').text();
@@ -139,6 +141,7 @@ $(document).ready(function () {
 
         $(".play").fadeOut();
         $(".pause").delay(400).fadeIn();
+        $(".stop").delay(400).fadeIn();
         if (!timerOn && !isPaused) {
             timerOn = true;
             startTimer(fragmentTime, displayMinute, displaySecond, currentTimer + " started");
@@ -157,64 +160,72 @@ $(document).ready(function () {
         isPaused = true;
     });
 
-    $(".session").click(function () {
-        var valueHolder = $(this).find("#session-length");
+    $("#session-plus").click(function () {
+        var valueHolder = $("#session-length");
         var currentValue = parseInt(valueHolder.text());
-        $(".fa-plus-square").click(function () {
-            currentValue++;
-            valueHolder.text(currentValue);
-            if (currentValue < 10) {
-                $("#minutes").text("0" + currentValue);
-            } else {
-                $("#minutes").text(currentValue);
-            }
+        currentValue++;
+        valueHolder.text(currentValue);
+        if (currentValue < 10) {
+            $("#minutes").text("0" + currentValue);
+        } else {
+            $("#minutes").text(currentValue);
+        }
 
-            if(isPaused) {
-                resetClock();
-            }
-            valueChanged = true;
-        });
-
-        $(".fa-minus-square").click(function () {
-            if(currentValue > 1){
-                currentValue--;
-            }
-            valueHolder.text(currentValue);
-            if (currentValue < 10) {
-                $("#minutes").text("0" + currentValue);
-            } else {
-                $("#minutes").text(currentValue);
-            }
-            if(isPaused) {
-                resetClock();
-            }
-            valueChanged = true;
-        });
+        if(isPaused) {
+            resetClock();
+        }
+        valueChanged = true;
     });
 
-    $(".break").click(function () {
-        var valueHolder = $(this).find("#break-length");
+    $("#session-minus").click(function () {
+        var valueHolder = $("#session-length");
         var currentValue = parseInt(valueHolder.text());
-        $(".fa-plus-square").click(function () {
-            currentValue++;
-            valueHolder.text(currentValue);
+        if(currentValue > 1){
+            currentValue--;
+        }
+        valueHolder.text(currentValue);
+        if (currentValue < 10) {
+            $("#minutes").text("0" + currentValue);
+        } else {
+            $("#minutes").text(currentValue);
+        }
+        if(isPaused) {
+            resetClock();
+        }
+        valueChanged = true;
+    });
 
-            if(isPaused) {
-                resetClock();
-            }
-            valueChanged = true;
-        });
+    $("#break-plus").click(function () {
+        var valueHolder = $("#break-length");
+        var currentValue = parseInt(valueHolder.text());
+        currentValue++;
+        valueHolder.text(currentValue);
 
-        $(".fa-minus-square").click(function () {
-            if(currentValue > 1){
-                currentValue--;
-            }
-            valueHolder.text(currentValue);
-            if(isPaused) {
-                resetClock();
-            }
-            valueChanged = true;
-        });
+        if(isPaused) {
+            resetClock();
+        }
+        valueChanged = true;
+    });
+
+    $("#break-minus").click(function () {
+        var valueHolder = $("#break-length");
+        var currentValue = parseInt(valueHolder.text());
+        if(currentValue > 1){
+            currentValue--;
+        }
+        valueHolder.text(currentValue);
+        if(isPaused) {
+            resetClock();
+        }
+        valueChanged = true;
+    });
+
+    $(".stop").click(function () {
+        $(".pause").fadeOut();
+        $(".stop").fadeOut();
+        $(".play").delay(400).fadeIn();
+        resetClock();
+        valueChanged = true;
     });
 });
 

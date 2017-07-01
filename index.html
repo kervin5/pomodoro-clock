@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+<div class="header">
+    <div class="title">
+        <h1>Pomo Cl<i class="fa fa-clock-o" aria-hidden="true"></i>ck</h1>
+    </div>
+
+    <div class="social">
+        <a href="https://github.com/kervin5/wikipedia-search"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/kervin5/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    </div>
+</div>
 <div class="container">
     <div class="bg-group">
         <div class="wave-bg">
@@ -24,24 +34,33 @@
     <div class="upper-controls">
         <div class="break control">
             <h3>BREAK LENGTH</h3>
-            <p><i class="fa fa-minus-square" aria-hidden="true"></i><span id="break-length">1</span><i class="fa fa-plus-square" aria-hidden="true"></i></p>
+            <p><i class="fa fa-minus-square" id="break-minus" aria-hidden="true"></i><span id="break-length">5</span><i class="fa fa-plus-square" id="break-plus" aria-hidden="true"></i></p>
         </div>
         <div class="session control">
             <h3>SESSION LENGTH</h3>
-            <p><i class="fa fa-minus-square" aria-hidden="true"></i><span id="session-length">1</span><i class="fa fa-plus-square" aria-hidden="true"></i></p>
+            <p><i class="fa fa-minus-square" id="session-minus" aria-hidden="true"></i><span id="session-length">25</span><i class="fa fa-plus-square" id="session-plus" aria-hidden="true"></i></p>
         </div>
     </div>
     <h2 class="timer"><span id="minutes">01</span>:<span id="seconds">00</span></h2>
     <h3 class="info">POMODORO</h3>
     <div class="lower-controls">
+
         <a href="#" class="button play">
             <i class="fa fa-play" aria-hidden="true"></i>
         </a>
         <a href="#" class="button pause">
             <i class="fa fa-pause" aria-hidden="true"></i>
         </a>
+        <a href="#" class="button stop">
+            <i class="fa fa-stop" aria-hidden="true"></i>
+        </a>
     </div>
 </div>
+<footer>
+    <p>made with <i class="fa fa-heart" aria-hidden="true"></i> by
+        <a href="http://kervin.greenjocote.com">Kervin</a> </p>
+</footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="js/min/script-min.js"></script>
 </body>
