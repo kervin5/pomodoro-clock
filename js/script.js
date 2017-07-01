@@ -147,6 +147,7 @@ $(document).ready(function () {
         }
 
         isPaused = false;
+        valueChanged = false;
     });
     $(".pause").click(function () {
         $(".pause").fadeOut();
@@ -167,12 +168,53 @@ $(document).ready(function () {
             } else {
                 $("#minutes").text(currentValue);
             }
+
+            if(isPaused) {
+                resetClock();
+            }
+            valueChanged = true;
+        });
+
+        $(".fa-minus-square").click(function () {
+            if(currentValue > 1){
+                currentValue--;
+            }
+            valueHolder.text(currentValue);
+            if (currentValue < 10) {
+                $("#minutes").text("0" + currentValue);
+            } else {
+                $("#minutes").text(currentValue);
+            }
+            if(isPaused) {
+                resetClock();
+            }
             valueChanged = true;
         });
     });
 
     $(".break").click(function () {
-        console.log("clicked");
+        var valueHolder = $(this).find("#break-length");
+        var currentValue = parseInt(valueHolder.text());
+        $(".fa-plus-square").click(function () {
+            currentValue++;
+            valueHolder.text(currentValue);
+
+            if(isPaused) {
+                resetClock();
+            }
+            valueChanged = true;
+        });
+
+        $(".fa-minus-square").click(function () {
+            if(currentValue > 1){
+                currentValue--;
+            }
+            valueHolder.text(currentValue);
+            if(isPaused) {
+                resetClock();
+            }
+            valueChanged = true;
+        });
     });
 });
 
