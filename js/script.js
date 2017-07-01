@@ -1,42 +1,51 @@
 //Javascript
 
-var timerOn = true;
+var timerOn = false;
 var currentTimer = "session";
+var isPaused = false;
 
 function startTimer(duration, displayMinute, displaySecond, message) {
     var bgPosition = duration;
 
     var timer = duration;
 
+    $('.info').text(message);
     var timeIntervalID = setInterval(function () {
-        bgPosition = 110 - ((timer / duration) + 0.1)*100;
-        console.log(timer);
-       $(".bg-group").css("top",bgPosition+"%");
-        minutes = parseInt(timer / 60, 10);
 
-        seconds = parseInt(timer % 60, 10);
+        if(!isPaused){
+            console.log(timer)
+            bgPosition = 110 - ((timer / duration) + 0.1)*100;
+            console.log(timer);
+            $(".bg-group").css("top",bgPosition+"%");
+            minutes = parseInt(timer / 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = parseInt(timer % 60, 10);
 
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
 
-        displayMinute.textContent = minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        displaySecond.textContent = seconds;
+            displayMinute.textContent = minutes;
 
-        if (--timer < 0) {
+            displaySecond.textContent = seconds;
 
-            timer = 0;
+            if (--timer < 0) {
 
-            if (timer === 0 && currentTimer !== "break") {
+                timer = 0;
 
-                clearInterval(timeIntervalID);
+                if (timer === 0 && currentTimer !== "break") {
 
-              $('.info').text(message);
+                    clearInterval(timeIntervalID);
+                    startTimer(120,displayMinute,displaySecond,"Break started");
+                    currentTimer = "break";
+                } else {
+                    $('.info').text("Break is over");
+                }
 
             }
-
         }
+
+
 
     }, 1000);
 
@@ -51,7 +60,7 @@ $(document).ready(function () {
     var sessionMinutes = $('#session-length').text();
     var breakMinutes = $('#break-length').text();
 
-    var minutes = parseInt(sessionMinutes) + parseInt(breakMinutes);
+    var minutes = parseInt(sessionMinutes);
 
     var seconds = $('#seconds').text();
 
@@ -92,7 +101,15 @@ $(document).ready(function () {
     $(".play").click(function () {
         $(".play").fadeOut();
         $(".pause").delay(400).fadeIn();
-        startTimer(fragmentTime, displayMinute, displaySecond,"Time out");
+        if(!timerOn){
+            startTimer(fragmentTime, displayMinute, displaySecond,"Session started");
+        }
+        isPaused = false;
+    });
+    $(".pause").click(function () {
+        $(".pause").fadeOut();
+        $(".play").delay(400).fadeIn();
+        isPaused = true;
     });
 });
 
