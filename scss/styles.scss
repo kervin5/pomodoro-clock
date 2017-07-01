@@ -1,14 +1,17 @@
-html, body { height: 100%; }
+html, body { height: 100%; margin: 0; background-repeat: no-repeat;
+  background-attachment: fixed; }
 body {
   background: linear-gradient(to bottom, rgba(255,199,118,1) 0%,rgba(255,125,67,1) 100%);
   overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .bg-group {
   z-index: 1;
   left: 0;
   right: 0;
-  top: 50vh;
+  top: 0;
   position: relative;
 }
 
@@ -84,7 +87,7 @@ body {
   top: 10vh;
 }
 
-.timer {
+.timer, .info{
   position: absolute;
   font-family: 'Oswald', sans-serif;
   color: white;
@@ -93,12 +96,45 @@ body {
   text-align: center;
   width: 100%;
   margin: 0;
-  top: 20%;
+  top: 30%;
   z-index: 2;
   text-shadow: 0px 2px 11px rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
 }
 
+@media (max-width: 600px),(max-height: 600px) {
+  .timer {
+    font-size: 5em;
+  }
+}
 
+.upper-controls {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  font-size: 1.5em;
+
+  white-space: nowrap;
+  .control {
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    color: white;
+
+    h3 {
+      opacity: 0.9;
+      margin-top: 0;
+    }
+
+    .fa {
+      margin: auto 10px;
+      cursor: pointer;
+    }
+  }
+}
 
 .lower-controls {
   position: absolute;
@@ -112,7 +148,7 @@ body {
   color: white;
   border: 1px solid white;
   text-align: center;
-  padding: 21px 30px;
+  padding: 20px 30px;
 
 
   border-radius: 50%;
@@ -136,5 +172,42 @@ body {
   font-size: 3em;
   i {
     transform: translateX(5px);
+  }
+}
+
+@media (max-width: 600px),(max-height: 600px) {
+  .lower-controls {
+    bottom: 10%;
+  }
+  .upper-controls {
+    .control {
+
+      h3 {
+        font-size: 1em;
+      }
+
+    }
+  }
+
+
+  .play {
+    font-size: 3em;
+    i {
+      transform: translateX(5px);
+    }
+  }
+}
+
+.info {
+  top: auto;
+  font-size: 4em;
+  bottom: 30%;
+}
+
+@media (max-width: 600px),(max-height: 600px) {
+  .info {
+    top: auto;
+    font-size: 2em;
+    bottom: 30%;
   }
 }
