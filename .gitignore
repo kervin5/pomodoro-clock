@@ -1,2 +1,6 @@
 .idea/*
-.sass-chache
+.sass-cache/*
+.codekit-cache/
+.idea/
+
+
