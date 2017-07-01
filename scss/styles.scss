@@ -188,7 +188,7 @@ body {
   text-align: center;
 
   border-radius: 50%;
-  transition: 0.5s;
+  transition: 0.3s;
 
   left: 50%;
   transform: translateX(-50%);
@@ -268,8 +268,14 @@ body {
     font-size: 1em;
     padding: 10px 15px;
     i {
-      transform: translateX(2px);
+      transform: translateX(-2px);
     }
+  }
+
+  .pause {
+    position: absolute;
+    font-size: 1em;
+    padding: 10px 15px;
   }
 }
 
