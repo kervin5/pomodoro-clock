@@ -61,7 +61,7 @@ body { background: -webkit-linear-gradient(top, #ffc776 0%, #ff7d43 100%); backg
 @media (max-width: 600px), (max-height: 650px) { .lower-controls { bottom: 10%; }
   .upper-controls .control h3 { font-size: 1em; }
   .play { position: absolute; font-size: 1em; padding: 10px 15px; }
-  .play i { -webkit-transform: translateX(-2px); transform: translateX(-2px); }
+  .play i { -webkit-transform: translateX(1px); transform: translateX(1px); }
   .pause { position: absolute; font-size: 1em; padding: 10px 15px; } }
 .info { top: auto; font-size: 4em; bottom: 30%; }
 
